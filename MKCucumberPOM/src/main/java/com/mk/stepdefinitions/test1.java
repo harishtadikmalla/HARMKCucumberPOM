@@ -14,9 +14,11 @@ public class test1 extends TestBase {
 	@Given("^user is in Main Page$")
 	public void user_is_in_Main_Page(){
 		TestBase.Initialization();
-		sleep(1000);
+		sleep(5);
 		WebElement clsBtn = driver.findElement(By.xpath("//div[@class='korsvip-signUp-sub-wrapper']//div//button[@id='closekorsvipsignUpModel']"));
+		if(clsBtn.isDisplayed()){
 		clsBtn.click();
+		}
 	}
 
 	@Then("^Mouse hover on the Mega Menu$")

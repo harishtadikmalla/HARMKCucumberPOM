@@ -41,6 +41,7 @@ public class TestBase {
 		}
 		
 		driver.manage().window().maximize();
+		//driver.manage().
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
@@ -66,9 +67,9 @@ public static WebElement getSubMenuWebElement(String subMenuOption) {
 		return eleXpath;
 	}
 	
-	public void sleep(long milliSeconds) {
+	public static void sleep(long milliSeconds) {
 		try {
-			Thread.sleep(milliSeconds);
+			Thread.sleep(milliSeconds * 1000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.getMessage();
