@@ -40,6 +40,11 @@ public class test1 extends TestBase {
 		Header.openSignInFlyout();
 	}
 	
+	@Then("^Sign In$")
+	public void Sign_In(){
+		Header.signIn(prop.getProperty("username"),prop.getProperty("password"));
+	}
+	
 	
 
 }
