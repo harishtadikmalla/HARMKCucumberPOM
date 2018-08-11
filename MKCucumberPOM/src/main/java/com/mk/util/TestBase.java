@@ -55,7 +55,7 @@ public class TestBase {
 		return ele;
 	}
 	
-public static WebElement getSubMenuWebElement(String subMenuOption) {
+	public static WebElement getSubMenuWebElement(String subMenuOption) {
 		
 		String xpathVal = "//a[@class ='menu-link l2flyout' and @title = '"+subMenuOption.toUpperCase()+"']";
 		WebElement ele = driver.findElement(By.xpath(xpathVal));

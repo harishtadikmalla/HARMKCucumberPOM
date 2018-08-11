@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import com.mk.pages.Header;
+import com.mk.pages.Search;
 import com.mk.util.TestBase;
 
 import cucumber.api.java.en.Given;
@@ -20,6 +21,19 @@ public class test1 extends TestBase {
 		clsBtn.click();
 		}
 	}
+	
+	@Then("^Search for an item$")
+	public void search_for_an_item(){
+		System.out.println(prop.toString());
+		String styleID = prop.getProperty("styleid");
+		Search.searchAnItem(styleID);
+	}
+	
+	@Then("^navigate to PDP from products page$")
+	public void navigate_to_PDP_from_products_page() {
+	   
+	}
+
 
 	@Then("^Mouse hover on the Mega Menu$")
 	public void Mouse_hover_on_the_Mega_Menu() throws Throwable {
