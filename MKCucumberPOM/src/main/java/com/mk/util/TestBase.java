@@ -24,7 +24,7 @@ public class TestBase {
 	public TestBase() {
 		try {
 			prop = new Properties();
-			FileInputStream fis = new FileInputStream("C:\\Users\\Harish\\eclipse-workspace\\MKCucumberPOM\\src\\main\\java\\com\\mk\\config\\config.properties");
+			FileInputStream fis = new FileInputStream("C:\\Users\\Harish\\git\\HARMKCucumberPOM\\MKCucumberPOM\\src\\main\\java\\com\\mk\\config\\config.properties");
 			prop.load(fis);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

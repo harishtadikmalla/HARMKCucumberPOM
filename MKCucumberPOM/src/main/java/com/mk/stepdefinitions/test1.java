@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import com.mk.pages.Header;
+import com.mk.pages.Products;
 import com.mk.pages.Search;
 import com.mk.util.TestBase;
 
@@ -11,6 +12,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 
 public class test1 extends TestBase {
+	String styleID = prop.getProperty("styleid");
 	
 	@Given("^user is in Main Page$")
 	public void user_is_in_Main_Page(){
@@ -24,14 +26,18 @@ public class test1 extends TestBase {
 	
 	@Then("^Search for an item$")
 	public void search_for_an_item(){
-		System.out.println(prop.toString());
-		String styleID = prop.getProperty("styleid");
 		Search.searchAnItem(styleID);
 	}
 	
+	@Then("^select a color$")
+	public void select_a_color() {
+	    Products.selectColor("OPTIC WHITE");
+	}
+
+	
 	@Then("^navigate to PDP from products page$")
 	public void navigate_to_PDP_from_products_page() {
-	   
+		Products.goToPDP(styleID);
 	}
 
 
