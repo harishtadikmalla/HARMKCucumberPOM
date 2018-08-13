@@ -2,12 +2,12 @@ package com.mk.test;
 
 import org.testng.annotations.Test;
 
-import org.junit.runner.RunWith;
+//import org.junit.runner.RunWith;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 
-@RunWith(Cucumber.class)
+//@RunWith(Cucumber.class)
 @CucumberOptions(
 		features="C:\\Users\\Harish\\git\\HARMKCucumberPOM\\MKCucumberPOM\\src\\main\\java\\com\\mk\\features\\test2.feature",
 		glue= {"com.mk.stepdefinitions"},
