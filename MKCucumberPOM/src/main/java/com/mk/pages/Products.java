@@ -29,6 +29,7 @@ public class Products extends TestBase{
 		    	break;
 		    }
 			we.click();
+			sleep(2);
 			selectedColor = spanColor.getText();
 			System.out.println(selectedColor);
 		}

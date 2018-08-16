@@ -7,9 +7,11 @@ import com.mk.pages.Header;
 import com.mk.pages.Products;
 import com.mk.pages.Search;
 import com.mk.util.TestBase;
+import com.relevantcodes.extentreports.LogStatus;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import gherkin.formatter.Reporter;
 
 public class test1 extends TestBase {
 	String styleID = prop.getProperty("styleid");
@@ -22,22 +24,28 @@ public class test1 extends TestBase {
 		if(clsBtn.isDisplayed()){
 		clsBtn.click();
 		}
+		//logger.log(LogStatus.PASS, "User is in Main page");
 	}
 	
 	@Then("^Search for an item$")
 	public void search_for_an_item(){
 		Search.searchAnItem(styleID);
+		//logger.log(LogStatus.PASS, "Search for an Item");
+		//Reporter.addStepLog(“Step Log message goes here”);
 	}
 	
 	@Then("^select a color$")
 	public void select_a_color() {
 	    Products.selectColor("OPTIC WHITE");
+	  //  logger.log(LogStatus.PASS, "Select A Color");
+	    
 	}
 
 	
 	@Then("^navigate to PDP from products page$")
 	public void navigate_to_PDP_from_products_page() {
 		Products.goToPDP(styleID);
+		//logger.log(LogStatus.PASS, "Navigate to PDP");
 	}
 
 
@@ -47,7 +55,7 @@ public class test1 extends TestBase {
 		WebElement shoes = getMegaMenuWebElement("shoes");
 		wait(driver,shoes);
 		moveToElement(shoes);
-	
+		//logger.log(LogStatus.PASS, "Mouse Hover on Mega Menu");
 	}
 	
 	@Then("^Click on a Sub Menu Item$")
@@ -55,16 +63,19 @@ public class test1 extends TestBase {
 		WebElement viewAllShoes = getSubMenuWebElement("VIEW ALL SHOES");
 		wait(driver,viewAllShoes);
 		viewAllShoes.click();
+		//logger.log(LogStatus.PASS, "Click on Sub Menu item");
 	}
 	
 	@Then("^Open Sign In Flyout$")
 	public void Open_Sign_In_Flyout(){
 		Header.openSignInFlyout();
+		//logger.log(LogStatus.PASS, "Open Sign In Flyout");
 	}
 	
 	@Then("^Sign In$")
 	public void Sign_In(){
 		Header.signIn(prop.getProperty("username"),prop.getProperty("password"));
+	//	logger.log(LogStatus.PASS, "Sign In ");
 	}
 	
 	

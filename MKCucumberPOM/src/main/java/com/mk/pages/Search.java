@@ -13,9 +13,11 @@ public class Search extends TestBase{
 	
 	public static void searchAnItem(String searchTxt) {
 		WebElement searchFld = driver.findElement(By.xpath("//a[@class='search-link loyalty-search-link']"));
+		//wait(searchFld);
 		searchFld.click();
 		
 		WebElement searchInptBox = driver.findElement(By.xpath("//input[@id='search-box' and @class='mk-search-input show-auto-suggest']"));
+		sleep(2);
 		searchInptBox.sendKeys(searchTxt);
 		Actions action = new Actions(driver); 
 		action.sendKeys(Keys.ENTER).build().perform();

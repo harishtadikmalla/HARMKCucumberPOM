@@ -22,6 +22,7 @@ public class Header extends TestBase{
 		uname.sendKeys(username);
 		pwd.sendKeys(password);
 		signInBtn.click();
+		sleep(10);
 		
 	}
 }

@@ -14,12 +14,20 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 
 public class TestBase {
 	
 	public static WebDriver driver;
 	public static Properties prop;
 	public static WebDriverWait wait;
+	protected static ExtentReports report;
+	protected static ExtentTest logger;
 	
 	public TestBase() {
 		try {
@@ -32,20 +40,34 @@ public class TestBase {
 		}
 	}
 	
+	/*@BeforeTest
+	public void beforeTest() {
+		report = new ExtentReports("C:\\Users\\Harish\\Desktop\\Report\\MK1.html");
+		logger = report.startTest("MK First Test");
+	}
+	
+	@AfterTest
+	public void afterTest() {
+		report.endTest(logger);
+	    report.flush();
+	}*/
+	
 	public static void Initialization() {
+		
 		String browsername = prop.getProperty("browser");
 		if(browsername.toUpperCase().equals("CHROME")) {
 			driver = new ChromeDriver();
 		}else if(browsername.toUpperCase().equals("FIREFOX")) {
 			driver = new FirefoxDriver();
 		}
-		
+	//	logger.log(LogStatus.INFO, "Browser Initialized");
 		driver.manage().window().maximize();
 		//driver.manage().
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		driver.get(prop.getProperty("url"));
+	//	logger.log(LogStatus.INFO, "URL Opened");
 	}
 	
 	public static WebElement getMegaMenuWebElement(String megaMenuOption) {
@@ -86,6 +108,12 @@ public class TestBase {
 		Actions action = new Actions(driver);
 		action.moveToElement(ele).build().perform();
 	}
+	
+	public static void wait(WebElement ele) {
+		WebDriverWait eleWait = new WebDriverWait(driver,20);
+		eleWait.until(ExpectedConditions.elementToBeClickable(ele));
+	}
+	
 	
 	
 

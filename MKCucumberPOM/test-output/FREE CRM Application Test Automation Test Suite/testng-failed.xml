@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [FREE CRM Application Test Automation Test Suite]">
-  <listeners>
-    <listener class-name="com.mk.ExtentReportListener.ExtentReporterNG"/>
-  </listeners>
   <test thread-count="5" name="Free CRM App Test Cases(failed)">
     <classes>
+      <class name="com.mk.test.TestRunner">
+        <methods>
+          <include name="setUpClass"/>
+          <include name="feature" invocation-numbers="0"/>
+          <include name="tearDownClass"/>
+        </methods>
+      </class> <!-- com.mk.test.TestRunner -->
       <class name="com.mk.test.TestRunner2">
         <methods>
           <include name="setUpClass"/>

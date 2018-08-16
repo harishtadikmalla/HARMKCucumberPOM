@@ -1,7 +1,7 @@
 package com.mk.test;
 
 //import org.junit.runner.RunWith;
-import org.testng.annotations.Test;
+//import org.testng.annotations.Test;
 
 import cucumber.api.CucumberOptions;
 //import cucumber.api.junit.Cucumber;
@@ -16,7 +16,10 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 		dryRun=false
 		)
 
-@Test
-public class TestRunner extends AbstractTestNGCucumberTests {
 
+public class TestRunner extends AbstractTestNGCucumberTests{
+
+		
 }
+
+
